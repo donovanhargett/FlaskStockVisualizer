@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Stock Data Visualizer</title>
+</head>
+<body>
+    <h1>Stock Data Visualizer</h1>
+    <form action="/" method="post">
+        <form action="/" method="post">
+            <label for="stock_symbol">Stock Symbol:</label>
+            <select id="stock_symbol" name="stock_symbol">
+                {% for symbol in stock_symbol %}
+                    <option value="{{ symbol }}">{{ symbol }}</option>
+                {% endfor %}
+            </select><br><br>
+
+        <label for="chart_type">Chart Type:</label>
+        <select id="chart_type" name="chart_type">
+            <option value="bar">Bar</option>
+            <option value="line">Line</option>
+        </select><br><br>
+
+        <label for="time_series_option">Time Series Option:</label>
+        <select id="time_series_option" name="time_series_option">
+            <option value="1">1: Intraday</option>
+            <option value="2">2: Daily</option>
+            <option value="3">3: Weekly</option>
+            <option value="4">4: Monthly</option>
+        </select><br><br>
+
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required><br><br>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <div id="chart-container">
+    {% if graph_data %}
+        <embed type="image/svg+xml" src="{{ graph_data }}" />
+    </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,7 @@
+Need stock.html file 
+Look at flask info on pygal info for rendering 
+--> https://www.pygal.org/en/stable/documentation/output.html
+
+populate drop down menu from array of stocks: 
+
+video posted 
